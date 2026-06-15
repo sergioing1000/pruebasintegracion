@@ -1,16 +1,18 @@
-package edu.unisabana.tyvs.domain.service;
+package edu.unisabana.tyvs.registry.application.usecase;
 
-import edu.unisabana.tyvs.domain.model.Person;
-import edu.unisabana.tyvs.domain.model.RegisterResult;
-
-import java.util.HashSet;
-import java.util.Set;
+import edu.unisabana.tyvs.registry.application.port.out.RegistryRepositoryPort;
+import edu.unisabana.tyvs.registry.domain.model.Person;
+import edu.unisabana.tyvs.registry.domain.model.RegisterResult;
 
 public class Registry {
 
-    private final Set<Integer> registeredIds = new HashSet<>();
+    private final RegistryRepositoryPort repository;
 
-    public RegisterResult registerVoter(Person person) {
+    public Registry(RegistryRepositoryPort repository) {
+        this.repository = repository;
+    }
+
+    public RegisterResult registerVoter(Person person) throws Exception {
 
         if (person == null) {
             return RegisterResult.INVALID;
@@ -32,11 +34,11 @@ public class Registry {
             return RegisterResult.UNDERAGE;
         }
 
-        if (registeredIds.contains(person.getId())) {
+        if (repository.existsById(person.getId())) {
             return RegisterResult.DUPLICATED;
         }
 
-        registeredIds.add(person.getId());
+        repository.save(person);
 
         return RegisterResult.VALID;
     }

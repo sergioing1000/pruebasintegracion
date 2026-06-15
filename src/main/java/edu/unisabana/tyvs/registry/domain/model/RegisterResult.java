@@ -1,4 +1,4 @@
-package edu.unisabana.tyvs.domain.model;
+package edu.unisabana.tyvs.registry.domain.model;
 
 public enum RegisterResult {
     VALID,

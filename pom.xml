@@ -68,20 +68,17 @@
       <scope>test</scope>
     </dependency>
 
-    <!-- Web + JSON -->
     <dependency>
-      <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-starter-web</artifactId>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-web</artifactId>
+        <version>3.5.0</version>
     </dependency>
 
-    <!-- Tests Spring + JUnit 4/5 -->
     <dependency>
-      <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-starter-test</artifactId>
-      <scope>test</scope>
-      <exclusions>
-        <!-- si te quedas con JUnit 4, excluye vintage o ajusta según tu setup -->
-      </exclusions>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-test</artifactId>
+        <version>3.5.0</version>
+        <scope>test</scope>
     </dependency>
 
     <!-- H2: base de datos en memoria para pruebas de integración -->

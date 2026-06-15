@@ -1,7 +1,7 @@
-package edu.unisabana.tyvs.domain.model;
+package edu.unisabana.tyvs.registry.domain.model;
 
-public enum Gender { 
-    MALE, 
-    FEMALE, 
-    UNIDENTIFIED 
+public enum Gender {
+    MALE,
+    FEMALE,
+    UNIDENTIFIED
 }

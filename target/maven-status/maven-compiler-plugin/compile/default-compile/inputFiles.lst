@@ -1,1 +1,9 @@
 C:\SC\202X\029 UniSabana\2026-1\005 Testing y Validación de Software\Unidad 4\pruebasintegracion\src\main\java\edu\unisabana\tyvs\App.java
+C:\SC\202X\029 UniSabana\2026-1\005 Testing y Validación de Software\Unidad 4\pruebasintegracion\src\main\java\edu\unisabana\tyvs\registry\application\port\RegistryRepositoryPort.java
+C:\SC\202X\029 UniSabana\2026-1\005 Testing y Validación de Software\Unidad 4\pruebasintegracion\src\main\java\edu\unisabana\tyvs\registry\application\usecase\Registry.java
+C:\SC\202X\029 UniSabana\2026-1\005 Testing y Validación de Software\Unidad 4\pruebasintegracion\src\main\java\edu\unisabana\tyvs\registry\delivery\rest\dto\PersonRequest.java
+C:\SC\202X\029 UniSabana\2026-1\005 Testing y Validación de Software\Unidad 4\pruebasintegracion\src\main\java\edu\unisabana\tyvs\registry\delivery\rest\RegistryController.java
+C:\SC\202X\029 UniSabana\2026-1\005 Testing y Validación de Software\Unidad 4\pruebasintegracion\src\main\java\edu\unisabana\tyvs\registry\domain\model\Gender.java
+C:\SC\202X\029 UniSabana\2026-1\005 Testing y Validación de Software\Unidad 4\pruebasintegracion\src\main\java\edu\unisabana\tyvs\registry\domain\model\Person.java
+C:\SC\202X\029 UniSabana\2026-1\005 Testing y Validación de Software\Unidad 4\pruebasintegracion\src\main\java\edu\unisabana\tyvs\registry\domain\model\RegisterResult.java
+C:\SC\202X\029 UniSabana\2026-1\005 Testing y Validación de Software\Unidad 4\pruebasintegracion\src\main\java\edu\unisabana\tyvs\registry\infrastructure\persistence\RegistryRepository.java

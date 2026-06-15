@@ -11,80 +11,100 @@ import org.junit.Test;
 
 import static org.junit.Assert.*;
 
-/**
- * Pruebas de integración para el caso de uso {@link Registry}, aplicando el formato AAA:
- * <ul>
- *   <li><b>Arrange</b>: preparación de datos y objetos a probar.</li>
- *   <li><b>Act</b>: ejecución del método bajo prueba.</li>
- *   <li><b>Assert</b>: verificación de los resultados esperados.</li>
- * </ul>
- */
 public class RegistryTest {
 
     private RegistryRepositoryPort repo;
     private Registry registry;
 
-    /**
-     * Arrange común a todos los tests:
-     * <ul>
-     *   <li>Instancia un repositorio H2 en memoria.</li>
-     *   <li>Inicializa el esquema (tabla) y limpia datos previos.</li>
-     *   <li>Construye el caso de uso inyectando el repositorio.</li>
-     * </ul>
-     */
     @Before
     public void setup() throws Exception {
+
         String jdbc = "jdbc:h2:mem:regdb;DB_CLOSE_DELAY=-1";
+
         repo = new RegistryRepository(jdbc);
 
-        repo.initSchema();   // Arrange: crear tabla
-        repo.deleteAll();    // Arrange: limpiar datos previos
+        repo.initSchema();
+        repo.deleteAll();
 
-        registry = new Registry(repo); // Arrange: inyectar dependencia
+        registry = new Registry(repo);
     }
 
-    /**
-     * Caso de prueba:
-     * <p>Una persona válida debe ser registrada exitosamente.</p>
-     */
     @Test
     public void shouldRegisterValidPerson() throws Exception {
-        // Arrange
-        Person p1 = new Person("Ana", 100, 30, Gender.FEMALE, true);
 
-        // Act
-        RegisterResult result = registry.registerVoter(p1);
+        Person person =
+                new Person("Ana", 100, 30, Gender.FEMALE, true);
 
-        // Assert
+        RegisterResult result =
+                registry.registerVoter(person);
+
         assertEquals(RegisterResult.VALID, result);
         assertTrue(repo.existsById(100));
     }
 
-    /**
-     * Caso de prueba:
-     * <p>Al intentar registrar dos personas con el mismo ID:</p>
-     * <ul>
-     *   <li>La primera se guarda como válida.</li>
-     *   <li>La segunda es rechazada como duplicada.</li>
-     * </ul>
-     */
     @Test
-    public void shouldPersistValidVoterAndRejectDuplicates() throws Exception {
-        // Arrange
-        Person p1 = new Person("Ana", 100, 30, Gender.FEMALE, true);
-        Person p2 = new Person("AnaDos", 100, 40, Gender.FEMALE, true);
+    public void shouldRejectDuplicatePerson() throws Exception {
 
-        // Act (primer registro)
-        RegisterResult result1 = registry.registerVoter(p1);
+        Person p1 =
+                new Person("Ana", 100, 30, Gender.FEMALE, true);
 
-        // Assert primer registro
-        assertEquals(RegisterResult.VALID, result1);
-        assertTrue(repo.existsById(100));
+        Person p2 =
+                new Person("Ana2", 100, 40, Gender.FEMALE, true);
 
-        // Act (segundo registro con mismo ID)
-        RegisterResult result2 = registry.registerVoter(p2);
+        assertEquals(
+                RegisterResult.VALID,
+                registry.registerVoter(p1));
 
-        // Assert segundo registro
-        assertEquals(RegisterResult.DUPLICATED, result2);
+        assertEquals(
+                RegisterResult.DUPLICATED,
+                registry.registerVoter(p2));
     }
+
+    @Test
+    public void shouldRejectUnderagePerson() throws Exception {
+
+        Person person =
+                new Person("Juan", 101, 17, Gender.MALE, true);
+
+        RegisterResult result =
+                registry.registerVoter(person);
+
+        assertEquals(RegisterResult.UNDERAGE, result);
+        assertFalse(repo.existsById(101));
+    }
+
+    @Test
+    public void shouldRejectDeadPerson() throws Exception {
+
+        Person person =
+                new Person("Pedro", 102, 35, Gender.MALE, false);
+
+        RegisterResult result =
+                registry.registerVoter(person);
+
+        assertEquals(RegisterResult.DEAD, result);
+        assertFalse(repo.existsById(102));
+    }
+
+    @Test
+    public void shouldRejectInvalidId() throws Exception {
+
+        Person person =
+                new Person("Laura", -1, 25, Gender.FEMALE, true);
+
+        RegisterResult result =
+                registry.registerVoter(person);
+
+        assertEquals(RegisterResult.INVALID, result);
+    }
+
+    @Test(expected = Exception.class)
+    public void shouldFailWhenDatabaseConnectionIsInvalid() throws Exception {
+
+        RegistryRepository repo =
+                new RegistryRepository("jdbc:h2:tcp://invalid-server/regdb");
+
+        repo.initSchema();
+    }
+
 }

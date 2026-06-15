@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" version="3.0.1" name="edu.unisabana.tyvs.registry.application.usecase.RegistryTest" time="3.238" tests="6" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" version="3.0.1" name="edu.unisabana.tyvs.registry.application.usecase.RegistryWithMockTest" time="1.836" tests="3" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="25"/>
     <property name="sun.cpu.isalist" value="amd64"/>
@@ -61,10 +61,13 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="69.0"/>
   </properties>
-  <testcase name="shouldRegisterValidPerson" classname="edu.unisabana.tyvs.registry.application.usecase.RegistryTest" time="0.445"/>
-  <testcase name="shouldRejectInvalidId" classname="edu.unisabana.tyvs.registry.application.usecase.RegistryTest" time="0.004"/>
-  <testcase name="shouldFailWhenDatabaseConnectionIsInvalid" classname="edu.unisabana.tyvs.registry.application.usecase.RegistryTest" time="2.761"/>
-  <testcase name="shouldRejectDeadPerson" classname="edu.unisabana.tyvs.registry.application.usecase.RegistryTest" time="0.006"/>
-  <testcase name="shouldRejectDuplicatePerson" classname="edu.unisabana.tyvs.registry.application.usecase.RegistryTest" time="0.007"/>
-  <testcase name="shouldRejectUnderagePerson" classname="edu.unisabana.tyvs.registry.application.usecase.RegistryTest" time="0.006"/>
+  <testcase name="shouldThrowExceptionWhenRepositoryFails" classname="edu.unisabana.tyvs.registry.application.usecase.RegistryWithMockTest" time="1.816">
+    <system-err><![CDATA[WARNING: A Java agent has been loaded dynamically (C:\Users\sergi\.m2\repository\net\bytebuddy\byte-buddy-agent\1.14.15\byte-buddy-agent-1.14.15.jar)
+WARNING: If a serviceability tool is in use, please run with -XX:+EnableDynamicAgentLoading to hide this warning
+WARNING: If a serviceability tool is not in use, please run with -Djdk.instrument.traceUsage for more information
+WARNING: Dynamic loading of agents will be disallowed by default in a future release
+]]></system-err>
+  </testcase>
+  <testcase name="shouldSavePersonWhenNotExists" classname="edu.unisabana.tyvs.registry.application.usecase.RegistryWithMockTest" time="0.015"/>
+  <testcase name="shouldReturnDuplicatedWhenRepoSaysExists" classname="edu.unisabana.tyvs.registry.application.usecase.RegistryWithMockTest" time="0.003"/>
 </testsuite>

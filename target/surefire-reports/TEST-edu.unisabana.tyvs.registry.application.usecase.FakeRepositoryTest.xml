@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" version="3.0.1" name="edu.unisabana.tyvs.registry.application.usecase.RegistryTest" time="3.238" tests="6" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" version="3.0.1" name="edu.unisabana.tyvs.registry.application.usecase.FakeRepositoryTest" time="0.05" tests="3" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="25"/>
     <property name="sun.cpu.isalist" value="amd64"/>
@@ -61,10 +61,7 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="69.0"/>
   </properties>
-  <testcase name="shouldRegisterValidPerson" classname="edu.unisabana.tyvs.registry.application.usecase.RegistryTest" time="0.445"/>
-  <testcase name="shouldRejectInvalidId" classname="edu.unisabana.tyvs.registry.application.usecase.RegistryTest" time="0.004"/>
-  <testcase name="shouldFailWhenDatabaseConnectionIsInvalid" classname="edu.unisabana.tyvs.registry.application.usecase.RegistryTest" time="2.761"/>
-  <testcase name="shouldRejectDeadPerson" classname="edu.unisabana.tyvs.registry.application.usecase.RegistryTest" time="0.006"/>
-  <testcase name="shouldRejectDuplicatePerson" classname="edu.unisabana.tyvs.registry.application.usecase.RegistryTest" time="0.007"/>
-  <testcase name="shouldRejectUnderagePerson" classname="edu.unisabana.tyvs.registry.application.usecase.RegistryTest" time="0.006"/>
+  <testcase name="shouldRegisterPersonUsingFakeRepository" classname="edu.unisabana.tyvs.registry.application.usecase.FakeRepositoryTest" time="0.023"/>
+  <testcase name="shouldDetectDuplicatedPersonUsingFakeRepository" classname="edu.unisabana.tyvs.registry.application.usecase.FakeRepositoryTest" time="0.001"/>
+  <testcase name="shouldDeleteAllRecords" classname="edu.unisabana.tyvs.registry.application.usecase.FakeRepositoryTest" time="0.001"/>
 </testsuite>

@@ -1,2 +1,6 @@
 C:\SC\202X\029 UniSabana\2026-1\005 Testing y Validación de Software\Unidad 4\pruebasintegracion\src\test\java\edu\unisabana\tyvs\AppTest.java
+C:\SC\202X\029 UniSabana\2026-1\005 Testing y Validación de Software\Unidad 4\pruebasintegracion\src\test\java\edu\unisabana\tyvs\registry\application\usecase\FakeRepository.java
+C:\SC\202X\029 UniSabana\2026-1\005 Testing y Validación de Software\Unidad 4\pruebasintegracion\src\test\java\edu\unisabana\tyvs\registry\application\usecase\FakeRepositoryTest.java
 C:\SC\202X\029 UniSabana\2026-1\005 Testing y Validación de Software\Unidad 4\pruebasintegracion\src\test\java\edu\unisabana\tyvs\registry\application\usecase\RegistryTest.java
+C:\SC\202X\029 UniSabana\2026-1\005 Testing y Validación de Software\Unidad 4\pruebasintegracion\src\test\java\edu\unisabana\tyvs\registry\application\usecase\RegistryWithMockTest.java
+C:\SC\202X\029 UniSabana\2026-1\005 Testing y Validación de Software\Unidad 4\pruebasintegracion\src\test\java\edu\unisabana\tyvs\registry\delivery\rest\RegistryControllerIT.java
